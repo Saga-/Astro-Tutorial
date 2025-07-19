@@ -1,0 +1,13 @@
+---
+const { frontmatter } = Astro.props;
+---
+<meta charset="utf-8" />
+<img src={frontmatter.image.url} alt={frontmatter.image.alt} width="300" />
+<h1>{frontmatter.title}</h1>
+<p>tags: {[...frontmatter.tags].join(', ')}</p>
+<p>Written by {frontmatter.author}</p>
+<p>Published on: {frontmatter.pubDate.toString().slice(0,10)}</p>
+<h2>Description</h2>
+<p>{frontmatter.description}</p>
+<h2>Content</h2>
+<slot />
